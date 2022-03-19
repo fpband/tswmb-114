@@ -43,7 +43,7 @@ async def HelpWatermark(bot, cmd):
 		await db.add_user(cmd.from_user.id)
 		await bot.send_message(
 			Config.LOG_CHANNEL,
-			f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{Config.BOT_USERNAME} !!"
+			f"#کاربر_جدید: \n\nکاربر جدید بنام [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) به ربات پیوست @{Config.BOT_USERNAME} !!"
 		)
 	if Config.UPDATES_CHANNEL:
 		fsub = await handle_force_subscribe(bot, cmd)
@@ -52,7 +52,7 @@ async def HelpWatermark(bot, cmd):
 	await cmd.reply_text(
 		text=Config.USAGE_WATERMARK_ADDER,
 		parse_mode="Markdown",
-		reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Developer", url="https://t.me/AbirHasan2005"), InlineKeyboardButton("Support Group", url="https://t.me/DevsZone")], [InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")], [InlineKeyboardButton("Source Code", url="https://github.com/AbirHasan2005/Watermark-Bot")]]),
+		reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💻 مدیر و سازنده ربات", url="https://t.me/FarshidBand"), InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub")], [InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1")], [InlineKeyboardButton("📍 اینستاگرام", url="https://instagram.com/Series.Plus1")]]),
 		disable_web_page_preview=True
 	)
 
@@ -128,7 +128,7 @@ async def VidWatermarkAdder(bot, cmd):
 		await db.add_user(cmd.from_user.id)
 		await bot.send_message(
 			Config.LOG_CHANNEL,
-			f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{Config.BOT_USERNAME} !!"
+			f"#کاربر_جدید: \n\nکاربر جدید بنام [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) به ربات پیوست @{Config.BOT_USERNAME} !!"
 		)
 	if Config.UPDATES_CHANNEL:
 		fsub = await handle_force_subscribe(bot, cmd)
@@ -145,7 +145,7 @@ async def VidWatermarkAdder(bot, cmd):
 			file_name=watermark_path,
 		)
 		await editable.delete()
-		await cmd.reply_text("This Saved as Next Video Watermark!\n\nNow Send any Video to start adding Watermark to the Video!")
+		await cmd.reply_text("✅ واترمارک با موفقیت ذخیره شد 😍!\n\n🔚 اکنون ویدیو جهت افزودن واترمارک ارسال نمایید!")
 		return
 	else:
 		pass
@@ -165,7 +165,7 @@ async def VidWatermarkAdder(bot, cmd):
 		await cmd.reply_text("Sorry, Currently I am busy with another Task!\n\nTry Again After Sometime!")
 		return
 	preset = Config.PRESET
-	editable = await cmd.reply_text("Downloading Video ...", parse_mode="Markdown")
+	editable = await cmd.reply_text("📥 در حال دانلود ویدیو ...", parse_mode="Markdown")
 	with open(status, "w") as f:
 		statusMsg = {
 			'chat_id': cmd.from_user.id,
@@ -188,7 +188,7 @@ async def VidWatermarkAdder(bot, cmd):
 			file_name=dl_loc,
 			progress=progress_for_pyrogram,
 			progress_args=(
-				"Downloading Sir ...",
+				"📥 در حال دانلود ویدیو ...",
 				editable,
 				logs_msg,
 				c_time
@@ -335,7 +335,7 @@ async def CancelWatermarkAdder(bot, cmd):
 		await db.add_user(cmd.from_user.id)
 		await bot.send_message(
 			Config.LOG_CHANNEL,
-			f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{Config.BOT_USERNAME} !!"
+			f"#کاربر_جدید: \n\nکاربر جدید بنام [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) به ربات پیوست @{Config.BOT_USERNAME} !!"
 		)
 	if not int(cmd.from_user.id) == Config.OWNER_ID:
 		await cmd.reply_text("You Can't Use That Command!")
@@ -418,7 +418,7 @@ async def button(bot, cmd: CallbackQuery):
 		await cmd.message.edit(
 			text=Config.USAGE_WATERMARK_ADDER,
 			parse_mode="Markdown",
-			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Developer", url="https://t.me/AbirHasan2005"), InlineKeyboardButton("Support Group", url="https://t.me/DevsZone")], [InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")]]),
+			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💻 مدیر و سازنده ربات", url="https://t.me/FarshidBand"), InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub")], [InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1")]]),
 			disable_web_page_preview=True
 		)
 
