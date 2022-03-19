@@ -1,5 +1,5 @@
 # (c) @AbirHasan2005
-
+# خوش آمدید⁦❤️⁩
 # This is Telegram Video Watermark Adder Bot's Source Code.
 # I Hardly Made This. So Don't Forget to Give Me Credits.
 # Done this Huge Task for Free. If you guys not support me,
@@ -91,12 +91,12 @@ async def vidmark(the_media, message, working_dir, watermark_path, output_vid, t
             if difference > 0:
                 ETA = TimeFormatter(difference*1000)
             percentage = math.floor(elapsed_time * 100 / total_time)
-            progress_str = "📊 **Progress:** {0}%\n`[{1}{2}]`".format(
+            progress_str = "📊 **درصد پروژه::** {0}%\n`[{1}{2}]`".format(
                 round(percentage, 2),
                 ''.join(["▓" for i in range(math.floor(percentage / 10))]),
                 ''.join(["░" for i in range(10 - math.floor(percentage / 10))])
                 )
-            stats = f'📦️ **Adding Watermark [Preset: `{mode}`]**\n\n' \
+            stats = f'📦️ **در حال افزودن واترمارک [Preset: `{mode}`]**\n\n' \
                     f'⏰️ **ETA:** `{ETA}`\n❇️ **Position:** `{position}`\n🔰 **PID:** `{process.pid}`\n🔄 **Duration: `{format_timespan(total_time)}`**\n\n' \
                     f'{progress_str}\n'
             try:
