@@ -1,8 +1,4 @@
-# (c) @AbirHasan2005
-
-# Don't Forget That I Made This!
-# So Give Credits!
-
+# (c) @FarshidBand
 
 import os
 
@@ -26,14 +22,14 @@ class Config(object):
 	USAGE_WATERMARK_ADDER = """
 🌟 سلام دوست عزیز خوش آمدید ✨
 
-🔘 من ربات کاربردی واترمارک فایل های ویدیویی هستم. 
+**🔘 من ربات کاربردی واترمارک فایل های ویدیویی هستم.** 
 
-✅ پشتیبانی از حداکثر حجم 2GB 
+**✅ پشتیبانی از حداکثر حجم 2GB** 
 
-📚 راهنمای ربات ← /help 
-‌⚙️⁩ تنظیمات واترمارک : /settings 
+**📚 راهنمای ربات ← /help 
+‌⚙️⁩ تنظیمات واترمارک : /settings** 
 
-👤 مدیر : [FāRSHíD-Band](https://t.me/FarshidBand)
+**👤 مدیر : [FāRSHíD-Band](https://t.me/FarshidBand)**
 """
 	PROGRESS = """
 Percentage : {0}%
