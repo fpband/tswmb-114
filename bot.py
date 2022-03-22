@@ -40,7 +40,7 @@ async def HelpWatermark(bot, cmd):
 	await cmd.reply_text(
 		text=Config.USAGE_WATERMARK_ADDER,
 		parse_mode="Markdown",
-		reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💻 مدیر و سازنده ربات", url="https://t.me/FarshidBand"), InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub")], [InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1")], [InlineKeyboardButton("📍 اینستاگرام", url="https://instagram.com/Series.Plus1")]]),
+		reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💻 مدیر و سازنده ربات", url="https://t.me/FarshidBand")], [InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub")], InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1")]]),
 		disable_web_page_preview=True
 	)
 
@@ -174,7 +174,7 @@ async def VidWatermarkAdder(bot, cmd):
 		return
 	status = Config.DOWN_PATH + "/WatermarkAdder/status.json"
 	if os.path.exists(status):
-		await cmd.reply_text("Sorry, Currently I am busy with another Task!\n\n**🔚 دقایقی دیگر تلاش نمایید.**")
+		await cmd.reply_text("**📦 ربات اکنون مشغول انجام کار دیگری است.**\n\n**🔚 دقایقی دیگر تلاش نمایید.**")
 		return
 	preset = Config.PRESET
 	editable = await cmd.reply_text("**📥 در حال دانلود ویدیو ...**", parse_mode="Markdown")
@@ -382,7 +382,7 @@ async def sts(_, m):
 	if os.path.exists(status):
 		msg_text = "Sorry, Currently I am busy with another Task!\nI can't add Watermark at this moment."
 	else:
-		msg_text = "I am Free Now!\nSend me any video to add Watermark."
+		msg_text = "• هم اکنون فایل خود را ارسال نمایید.😊 "
 	if int(m.from_user.id) == Config.OWNER_ID:
 		total_users = await db.total_users_count()
 		msg_text += f"\n\n**👥 تعداد کاربرای ربات :** `{total_users}`"
@@ -430,7 +430,7 @@ async def button(bot, cmd: CallbackQuery):
 		await cmd.message.edit(
 			text=Config.USAGE_WATERMARK_ADDER,
 			parse_mode="Markdown",
-			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💻 مدیر و سازنده ربات", url="https://t.me/FarshidBand"), InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub")], [InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1")]]),
+			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💻 مدیر و سازنده ربات", url="https://t.me/FarshidBand")], [InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub"), InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1")]]),
 			disable_web_page_preview=True
 		)
 
