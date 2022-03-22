@@ -14,7 +14,7 @@ class Config(object):
 	DOWN_PATH = os.environ.get("DOWN_PATH", "./downloads")
 	PRESET = os.environ.get("PRESET", "ultrafast")
 	OWNER_ID = int(os.environ.get("OWNER_ID", 1445283714))
-	CAPTION = "By @AHToolsBot"
+	CAPTION = "✅ @FarshidBand •"
 	BOT_USERNAME = os.environ.get("BOT_USERNAME", "VideoWatermark_Bot")
 	DATABASE_URL = os.environ.get("DATABASE_URL")
 	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", False))
@@ -33,8 +33,7 @@ class Config(object):
 """
 	PROGRESS = """
 Percentage : {0}%
-Done ✅: {1}
-Total 🌀: {2}
-Speed 🚀: {3}/s
-ETA 🕰: {4}
+• {1} of {2} •
+سرعت 🚀: {3}/s
+مدت زمان 🕰: {4}
 """
