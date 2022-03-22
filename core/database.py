@@ -16,7 +16,7 @@ class Database:
             id=id,
             join_date=datetime.date.today().isoformat(),
             watermark_position="5:5",
-            watermark_size="7"
+            watermark_size="10"
         )
 
     async def add_user(self, id):
@@ -50,4 +50,4 @@ class Database:
 
     async def get_size(self, id):
         user = await self.col.find_one({'id': int(id)})
-        return user.get('watermark_size', '7')
+        return user.get('watermark_size', '10')
