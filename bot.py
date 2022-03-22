@@ -1,17 +1,5 @@
 # (c) @FarshidBand
 
-# This is Telegram Video Watermark Adder Bot's Source Code.
-# I Hardly Made This. So Don't Forget to Give Me Credits.
-# Done this Huge Task for Free. If you guys not support me,
-# I will stop making such things!
-
-# Edit anything at your own risk!
-
-# Don't forget to help me if I done any mistake in the codes.
-# Support Group: @DevsZone 
-# Bots Channel: @Discovery_Updates
-
-
 import os
 import time
 import json
@@ -63,7 +51,7 @@ async def SettingsBot(bot, cmd):
 		await db.add_user(cmd.from_user.id)
 		await bot.send_message(
 			Config.LOG_CHANNEL,
-			f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{Config.BOT_USERNAME} !!"
+			f"#کاربر_جدید: \n\nکاربر جدید بنام [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) وارد ربات شد @{Config.BOT_USERNAME} !!"
 		)
 	if Config.UPDATES_CHANNEL:
 		fsub = await handle_force_subscribe(bot, cmd)
@@ -82,11 +70,7 @@ async def SettingsBot(bot, cmd):
 		position_tag = "Top Left"
 
 	watermark_size = await db.get_size(cmd.from_user.id)
-	if int(watermark_size) == 5:
-		size_tag = "5%"
-	elif int(watermark_size) == 7:
-		size_tag = "7%"
-	elif int(watermark_size) == 10:
+	if int(watermark_size) == 10:
 		size_tag = "10%"
 	elif int(watermark_size) == 15:
 		size_tag = "15%"
@@ -102,11 +86,15 @@ async def SettingsBot(bot, cmd):
 		size_tag = "40%"
 	elif int(watermark_size) == 45:
 		size_tag = "45%"
+	elif int(watermark_size) == 50:
+		size_tag = "50%"
+	elif int(watermark_size) == 55:
+		size_tag = "55%"
 	else:
-		size_tag = "7%"
+		size_tag = "10%"
 	## --- Next --- ##
 	await cmd.reply_text(
-		text="Here you can set your Watermark Settings:",
+		text="⚙️ تنظیمات واترمارک را به دلخواه تغییر دهید.",
 		disable_web_page_preview=True,
 		parse_mode="Markdown",
 		reply_markup=InlineKeyboardMarkup(
@@ -115,8 +103,8 @@ async def SettingsBot(bot, cmd):
 				[InlineKeyboardButton("Set Top Left", callback_data=f"position_5:5"), InlineKeyboardButton("Set Top Right", callback_data=f"position_main_w-overlay_w-5:5")],
 				[InlineKeyboardButton("Set Bottom Left", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("Set Bottom Right", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
 				[InlineKeyboardButton(f"Watermark Size - {size_tag}", callback_data="lel")],
-				[InlineKeyboardButton("5%", callback_data=f"size_5"), InlineKeyboardButton("7%", callback_data=f"size_7"), InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20")],
-				[InlineKeyboardButton("25%", callback_data=f"size_25"), InlineKeyboardButton("30%", callback_data=f"size_30"), InlineKeyboardButton("35%", callback_data=f"size_30"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45")]
+				[InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25"), InlineKeyboardButton("30%", callback_data=f"size_30")],
+				[InlineKeyboardButton("35%", callback_data=f"size_35"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45"), InlineKeyboardButton("50%", callback_data=f"size_50"), InlineKeyboardButton("55%", callback_data=f"size_55")]
 			]
 		)
 	)
@@ -136,7 +124,7 @@ async def VidWatermarkAdder(bot, cmd):
 			return
 	## --- Noobie Process --- ##
 	if cmd.photo or (cmd.document and cmd.document.mime_type.startswith("image/")):
-		editable = await cmd.reply_text("Downloading Image ...")
+		editable = await cmd.reply_text("📥 در حال دانلود واترمارک ارسالی شما ...")
 		watermark_path = Config.DOWN_PATH + "/" + str(cmd.from_user.id) + "/thumb.jpg"
 		await asyncio.sleep(5)
 		c_time = time.time()
@@ -145,7 +133,7 @@ async def VidWatermarkAdder(bot, cmd):
 			file_name=watermark_path,
 		)
 		await editable.delete()
-		await cmd.reply_text("✅ واترمارک با موفقیت ذخیره شد 😍!\n\n🔚 اکنون ویدیو جهت افزودن واترمارک ارسال نمایید!")
+		await cmd.reply_text("✅ واترمارک با موفقیت ذخیره شد 😍!\n\n**🔚 اکنون ویدیوی جهت افزودن واترمارک به آن ارسال نمایید**")
 		return
 	else:
 		pass
@@ -154,7 +142,7 @@ async def VidWatermarkAdder(bot, cmd):
 		os.makedirs(working_dir)
 	watermark_path = Config.DOWN_PATH + "/" + str(cmd.from_user.id) + "/thumb.jpg"
 	if not os.path.exists(watermark_path):
-		await cmd.reply_text("You Didn't Set Any Watermark!\n\nSend any JPG or PNG Picture ...")
+		await cmd.reply_text("**× واترمارک ذخیره شده ای ندارید !!**\n\n**🔮 لطفاً عکسی با فرمت JPG یا PNG ارسال نمایید...**")
 		return
 	file_type = cmd.video or cmd.document
 	if not file_type.mime_type.startswith("video/"):
@@ -162,10 +150,10 @@ async def VidWatermarkAdder(bot, cmd):
 		return
 	status = Config.DOWN_PATH + "/WatermarkAdder/status.json"
 	if os.path.exists(status):
-		await cmd.reply_text("Sorry, Currently I am busy with another Task!\n\nTry Again After Sometime!")
+		await cmd.reply_text("Sorry, Currently I am busy with another Task!\n\n**🔚 دقایقی دیگر تلاش نمایید.**")
 		return
 	preset = Config.PRESET
-	editable = await cmd.reply_text("📥 در حال دانلود ویدیو ...", parse_mode="Markdown")
+	editable = await cmd.reply_text("**📥 در حال دانلود ویدیو ...**", parse_mode="Markdown")
 	with open(status, "w") as f:
 		statusMsg = {
 			'chat_id': cmd.from_user.id,
@@ -204,7 +192,7 @@ async def VidWatermarkAdder(bot, cmd):
 		await delete_trash(status)
 		await delete_trash(the_media)
 		print(f"Download Failed: {err}")
-		await editable.edit("Unable to Download The Video!")
+		await editable.edit("⁦‼️⁩ دانلود ویدیو ناموفق بود.😔")
 		return
 	watermark_position = await db.get_position(cmd.from_user.id)
 	if watermark_position == "5:main_h-overlay_h":
@@ -220,14 +208,14 @@ async def VidWatermarkAdder(bot, cmd):
 		watermark_position = "5:5"
 
 	watermark_size = await db.get_size(cmd.from_user.id)
-	await editable.edit(f"Trying to Add Watermark to the Video at {position_tag} Corner ...\n\nPlease Wait!")
+	await editable.edit(f"Trying to Add Watermark to the Video at {position_tag} Corner ...\n\n⭕ کمی صبر کنید...")
 	duration = 0
 	metadata = extractMetadata(createParser(the_media))
 	if metadata.has("duration"):
 		duration = metadata.get('duration').seconds
 	the_media_file_name = os.path.basename(the_media)
 	main_file_name = os.path.splitext(the_media_file_name)[0]
-	output_vid = main_file_name + "_[" + str(cmd.from_user.id) + "]_[" + str(time.time()) + "]_[@AbirHasan2005]" + ".mp4"
+	output_vid = main_file_name + "_[" + str(cmd.from_user.id) + "]_[" + str(time.time()) + "]_[@IR_WatermarkBot]" + ".mp4"
 	progress = Config.DOWN_PATH + "/WatermarkAdder/" + str(cmd.from_user.id) + "/progress.txt"
 	try:
 		output_vid = await vidmark(the_media, editable, progress, watermark_path, output_vid, duration, logs_msg, status, preset, watermark_position, watermark_size)
@@ -242,7 +230,7 @@ async def VidWatermarkAdder(bot, cmd):
 		await logs_msg.edit("#ERROR: Something went wrong!")
 		await delete_all()
 		return
-	await editable.edit("Watermark Added Successfully!\n\nTrying to Upload ...")
+	await editable.edit("**✅ افزودن واترمارک با موفقیت انجام شد.**\n\n**📤 هم اکنون در حال آپلود ...**")
 	await logs_msg.edit("Watermark Added Successfully!\n\nTrying to Upload ...", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Ban User", callback_data=f"ban_{cmd.from_user.id}")]]))
 	width = 100
 	height = 100
@@ -304,7 +292,7 @@ async def VidWatermarkAdder(bot, cmd):
 				await logs_msg.edit("Successfully Uploaded File to Streamtape!\n\nI am Free Now!", parse_mode="Markdown", disable_web_page_preview=True)
 		except Exception as e:
 			print(f"Error: {e}")
-			await editable.edit("Sorry, Something went wrong!\n\nCan't Upload to Streamtape. You can report at [Support Group](https://t.me/linux_repo).")
+			await editable.edit("Sorry, Something went wrong!\n\nCan't Upload to Streamtape. You can report at [Support Admin](https://t.me/FarshidBand).")
 			await logs_msg.edit(f"Got Error While Uploading to Streamtape!\n\nError: {e}")
 		await delete_all()
 		return
@@ -354,7 +342,7 @@ async def CancelWatermarkAdder(bot, cmd):
 		await bot.send_message(chat_id=Config.LOG_CHANNEL, text="#WATERMARK_ADDER: Stopped!")
 		await cmd.reply_text("Watermark Adding Process Stopped!")
 		try:
-			await bot.edit_message_text(chat_id=int(statusMsg["chat_id"]), message_id=int(statusMsg["message"]), text="🚦🚦 Last Process Stopped 🚦🚦")
+			await bot.edit_message_text(chat_id=int(statusMsg["chat_id"]), message_id=int(statusMsg["message"]), text="🚦 پروژه واترمارک با موفقیت لغو شد. 🚦")
 		except:
 			pass
 
@@ -373,7 +361,7 @@ async def sts(_, m):
 		msg_text = "I am Free Now!\nSend me any video to add Watermark."
 	if int(m.from_user.id) == Config.OWNER_ID:
 		total_users = await db.total_users_count()
-		msg_text += f"\n\n**Total Users in DB:** `{total_users}`"
+		msg_text += f"\n\n**👥 تعداد کاربرای ربات :** `{total_users}`"
 	await m.reply_text(text=msg_text, parse_mode="Markdown", quote=True)
 
 
@@ -387,7 +375,7 @@ async def button(bot, cmd: CallbackQuery):
 				user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), cmd.message.chat.id)
 				if user.status == "kicked":
 					await cmd.message.edit(
-						text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/DevsZone).",
+						text="Sorry Sir, You are Banned to use me. Contact my [Support Admin](https://t.me/FarshidBand).",
 						parse_mode="markdown",
 						disable_web_page_preview=True
 					)
@@ -410,7 +398,7 @@ async def button(bot, cmd: CallbackQuery):
 				return
 			except Exception:
 				await cmd.message.edit(
-					text="Something went Wrong. Contact my [Support Group](https://t.me/DevsZone).",
+					text="Something went Wrong. Contact my [Support Admin](https://t.me/FarshidBand).",
 					parse_mode="markdown",
 					disable_web_page_preview=True
 				)
@@ -435,7 +423,7 @@ async def button(bot, cmd: CallbackQuery):
 				user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), cmd.message.chat.id)
 				if user.status == "kicked":
 					await cmd.message.edit(
-						text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/DevsZone).",
+						text="Sorry Sir, You are Banned to use me. Contact my [Support Admin](https://t.me/FarshidBand).",
 						parse_mode="markdown",
 						disable_web_page_preview=True
 					)
@@ -458,7 +446,7 @@ async def button(bot, cmd: CallbackQuery):
 				return
 			except Exception:
 				await cmd.message.edit(
-					text="Something went Wrong. Contact my [Support Group](https://t.me/DevsZone).",
+					text="Something went Wrong. Contact my [Support Admin](https://t.me/FarshidBand).",
 					parse_mode="markdown",
 					disable_web_page_preview=True
 				)
@@ -482,11 +470,7 @@ async def button(bot, cmd: CallbackQuery):
 			position_tag = "Top Left"
 
 		watermark_size = await db.get_size(cmd.from_user.id)
-		if int(watermark_size) == 5:
-			size_tag = "5%"
-		elif int(watermark_size) == 7:
-			size_tag = "7%"
-		elif int(watermark_size) == 10:
+		if int(watermark_size) == 10:
 			size_tag = "10%"
 		elif int(watermark_size) == 15:
 			size_tag = "15%"
@@ -502,11 +486,15 @@ async def button(bot, cmd: CallbackQuery):
 			size_tag = "40%"
 		elif int(watermark_size) == 45:
 			size_tag = "45%"
+		elif int(watermark_size) == 50:
+			size_tag = "50%"
+		elif int(watermark_size) == 55:
+			size_tag = "55%"
 		else:
-			size_tag = "7%"
+			size_tag = "10%"
 		try:
 			await cmd.message.edit(
-				text="Here you can set your Watermark Settings:",
+				text="⁦**⚙️⁩ تنظیمات واترمارک را به دلخواه تغییر دهید.**",
 				disable_web_page_preview=True,
 				parse_mode="Markdown",
 				reply_markup=InlineKeyboardMarkup(
@@ -515,8 +503,8 @@ async def button(bot, cmd: CallbackQuery):
 						[InlineKeyboardButton("Set Top Left", callback_data=f"position_5:5"), InlineKeyboardButton("Set Top Right", callback_data=f"position_main_w-overlay_w-5:5")],
 						[InlineKeyboardButton("Set Bottom Left", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("Set Bottom Right", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
 						[InlineKeyboardButton(f"Watermark Size - {size_tag}", callback_data="lel")],
-						[InlineKeyboardButton("5%", callback_data=f"size_5"), InlineKeyboardButton("7%", callback_data=f"size_7"), InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20")],
-						[InlineKeyboardButton("25%", callback_data=f"size_25"), InlineKeyboardButton("30%", callback_data=f"size_30"), InlineKeyboardButton("35%", callback_data=f"size_30"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45")]
+						[InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25"), InlineKeyboardButton("30%", callback_data=f"size_30")],
+						[InlineKeyboardButton("35%", callback_data=f"size_35"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45"), InlineKeyboardButton("50%", callback_data=f"size_50"), InlineKeyboardButton("55%", callback_data=f"size_55")]
 					]
 				)
 			)
