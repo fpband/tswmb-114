@@ -1,4 +1,4 @@
-# (c) @AbirHasan2005
+# (c) @FarshidBand
 
 from configs import Config
 from core.database import Database
