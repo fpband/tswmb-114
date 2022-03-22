@@ -20,7 +20,7 @@ class Config(object):
 	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", False))
 	ALLOW_UPLOAD_TO_STREAMTAPE = bool(os.environ.get("ALLOW_UPLOAD_TO_STREAMTAPE", True))
 	USAGE_WATERMARK_ADDER = """
-🌟 سلام دوست عزیز خوش آمدید ✨
+**🌟 سلام دوست عزیز خوش آمدید ✨**
 
 **🔘 من ربات کاربردی واترمارک فایل های ویدیویی هستم.** 
 
