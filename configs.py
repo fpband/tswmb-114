@@ -32,8 +32,8 @@ class Config(object):
 **👤 مدیر : [FāRSHíD-Band](https://t.me/FarshidBand)**
 """
 	PROGRESS = """
-Percentage : {0}%
 • {1} of {2} •
-سرعت 🚀: {3}/s
-مدت زمان 🕰: {4}
+🎌 **درصد دانلود شده** : {0}%
+🚀 **سرعت** : {3}/s
+⏲️ **مدت زمان** : {4}
 """
