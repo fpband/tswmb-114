@@ -1,4 +1,4 @@
-# (c) @AbirHasan2005
+# (c) @FarshidBand
 
 import asyncio
 from configs import Config
