@@ -113,6 +113,8 @@ async def SettingsBot(bot, cmd):
 				[InlineKeyboardButton(f"Watermark Size - {size_tag}", callback_data="lel")],
 				[InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25"), InlineKeyboardButton("30%", callback_data=f"size_30")],
 				[InlineKeyboardButton("35%", callback_data=f"size_35"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45"), InlineKeyboardButton("50%", callback_data=f"size_50"), InlineKeyboardButton("55%", callback_data=f"size_55")],
+                                [InlineKeyboardButton("60%", callback_data=f"size_60"), InlineKeyboardButton("65%", callback_data=f"size_65"), InlineKeyboardButton("70%", callback_data=f"size_70")]
+
 			]
 		)
 	)
@@ -521,7 +523,8 @@ async def button(bot, cmd: CallbackQuery):
 						[InlineKeyboardButton("Set Bottom Left", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("Set Bottom Right", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
 						[InlineKeyboardButton(f"Watermark Size - {size_tag}", callback_data="lel")],
 						[InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25"), InlineKeyboardButton("30%", callback_data=f"size_30")],
-						[InlineKeyboardButton("35%", callback_data=f"size_35"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45"), InlineKeyboardButton("50%", callback_data=f"size_50"), InlineKeyboardButton("55%", callback_data=f"size_55")]
+						[InlineKeyboardButton("35%", callback_data=f"size_35"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45"), InlineKeyboardButton("50%", callback_data=f"size_50"), InlineKeyboardButton("55%", callback_data=f"size_55")],
+                                                [InlineKeyboardButton("60%", callback_data=f"size_60"), InlineKeyboardButton("65%", callback_data=f"size_65"), InlineKeyboardButton("70%", callback_data=f"size_70")]
 					]
 				)
 			)
