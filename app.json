@@ -16,6 +16,8 @@
         },
         "API_HASH": {
             "description": "Get this value from my.telegram.org or @TeleORG_Bot"
+            "required": 
+            "value": "xxxx"
         },
         "BOT_TOKEN": {
             "description": "Get this from @BotFather XD"
