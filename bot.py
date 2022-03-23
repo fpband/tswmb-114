@@ -150,7 +150,7 @@ async def VidWatermarkAdder(bot, cmd):
 		return
 	status = Config.DOWN_PATH + "/WatermarkAdder/status.json"
 	if os.path.exists(status):
-		await cmd.reply_text("Sorry, Currently I am busy with another Task!\n\n**🔚 دقایقی دیگر تلاش نمایید.**")
+		await cmd.reply_text("**• ربات اکنون مشغول انجام کار دیگری است ⁦‼️⁩**\n\n**🔚 دقایقی دیگر تلاش نمایید.**")
 		return
 	preset = Config.PRESET
 	editable = await cmd.reply_text("**📥 در حال دانلود ویدیو ...**", parse_mode="Markdown")
@@ -406,7 +406,7 @@ async def button(bot, cmd: CallbackQuery):
 		await cmd.message.edit(
 			text=Config.USAGE_WATERMARK_ADDER,
 			parse_mode="Markdown",
-			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💻 مدیر و سازنده ربات", url="https://t.me/FarshidBand"), InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub")], [InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1")]]),
+			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💻 مدیر و سازنده ربات", url="https://t.me/FarshidBand")], [InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub")], InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1")]]),
 			disable_web_page_preview=True
 		)
 
