@@ -68,6 +68,13 @@ async def SettingsBot(bot, cmd):
 		position_tag = "Top Right"
 	elif watermark_position == "5:5":
 		position_tag = "Top Left"
+	elif watermark_position == "main_w-overlay_w-0:main_h-overlay_h-0":
+		position_tag = "west 1"
+	elif watermark_position == "0:main_h-overlay_h":
+		position_tag = "west 2"
+	elif watermark_position == "0":
+		position_tag = "west 3"
+
 
 	watermark_size = await db.get_size(cmd.from_user.id)
 	if int(watermark_size) == 10:
@@ -119,6 +126,7 @@ async def SettingsBot(bot, cmd):
 			[
 				[InlineKeyboardButton(f"Watermark Position - {position_tag}", callback_data="lol")],
 				[InlineKeyboardButton("Set Top Left", callback_data=f"position_5:5"), InlineKeyboardButton("Set Top Right", callback_data=f"position_main_w-overlay_w-5:5")],
+                                [InlineKeyboardButton("Set west 1", callback_data=f"position_0:main_h-overlay_h"), InlineKeyboardButton("Set west 2", callback_data=f"position_.main_w-overlay_w-0:main_h-overlay_h-0"), InlineKeyboardButton("west 3", callback_data=f"position_0")],
 				[InlineKeyboardButton("Set Bottom Left", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("Set Bottom Right", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
 				[InlineKeyboardButton(f"Watermark Size - {size_tag}", callback_data="lel")],
 				[InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25"), InlineKeyboardButton("30%", callback_data=f"size_30")],
@@ -488,6 +496,12 @@ async def button(bot, cmd: CallbackQuery):
 			position_tag = "Top Left"
 		else:
 			position_tag = "Top Left"
+	        elif watermark_position == "main_w-overlay_w-0:main_h-overlay_h-0":
+		        position_tag = "west 1"
+	        elif watermark_position == "0:main_h-overlay_h":
+		        position_tag = "west 2"
+	elif watermark_position == "0":
+		position_tag = "west 3"
 
 		watermark_size = await db.get_size(cmd.from_user.id)
 		if int(watermark_size) == 10:
@@ -539,6 +553,8 @@ async def button(bot, cmd: CallbackQuery):
 					[
 						[InlineKeyboardButton(f"Watermark Position - {position_tag}", callback_data="lol")],
 						[InlineKeyboardButton("Set Top Left", callback_data=f"position_5:5"), InlineKeyboardButton("Set Top Right", callback_data=f"position_main_w-overlay_w-5:5")],
+                                                [InlineKeyboardButton("Set west 2", callback_data=f"position_0:main_h-overlay_h"), InlineKeyboardButton("Set west 1", callback_data=f"position_.main_w-overlay_w-0:main_h-overlay_h-0"), InlineKeyboardButton("west 3", callback_data=f"position_0")],
+				
 						[InlineKeyboardButton("Set Bottom Left", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("Set Bottom Right", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
 						[InlineKeyboardButton(f"Watermark Size - {size_tag}", callback_data="lel")],
 						[InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25"), InlineKeyboardButton("30%", callback_data=f"size_30")],
