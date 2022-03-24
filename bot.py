@@ -142,7 +142,7 @@ async def VidWatermarkAdder(bot, cmd):
 		os.makedirs(working_dir)
 	watermark_path = Config.DOWN_PATH + "/" + str(cmd.from_user.id) + "/thumb.jpg"
 	if not os.path.exists(watermark_path):
-		await cmd.reply_text("**× واترمارک ذخیره شده ای ندارید !!**\n\n**🔮 لطفاً عکسی با فرمت JPG یا PNG ارسال نمایید...**")
+		await cmd.reply_text("**❌ واترمارک ذخیره شده ای ندارید !!**\n\n**🔮 لطفاً عکسی با فرمت JPG یا PNG ارسال نمایید...**")
 		return
 	file_type = cmd.video or cmd.document
 	if not file_type.mime_type.startswith("video/"):
@@ -150,7 +150,7 @@ async def VidWatermarkAdder(bot, cmd):
 		return
 	status = Config.DOWN_PATH + "/WatermarkAdder/status.json"
 	if os.path.exists(status):
-		await cmd.reply_text("**💡 ربات اکنون مشغول پروژه دیگری است .**\n\n**🔚 دقایقی دیگر تلاش نمایید.**")
+		await cmd.reply_text("**💡 ربات اکنون مشغول پروژه دیگری است .**\n\n**🔚 دقایقی دیگر تلاش نمایید.😊♥️**")
 		return
 	preset = Config.PRESET
 	editable = await cmd.reply_text("**📥 در حال دانلود ویدیو ...**", parse_mode="Markdown")
