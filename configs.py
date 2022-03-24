@@ -26,15 +26,14 @@ class Config(object):
 
 **✅ پشتیبانی از حداکثر حجم 2GB** 
 
-**📚 راهنمای ربات ← /help 
-‌⚙️⁩ تنظیمات واترمارک : /settings** 
+**🎌 فعالیت ربات ← /help 
+‌**⚙️⁩ تنظیمات واترمارک ← /settings** 
 
 **👤 مدیر : [FāRSHíD-Band](https://t.me/FarshidBand)**
 """
 	PROGRESS = """
 Percentage : {0}%
-Done ✅: {1}
-Total 🌀: {2}
-Speed 🚀: {3}/s
+Done ✅: {1} of {2}
+⚡ **سرعت**: {3}/s
 ETA 🕰: {4}
 """
