@@ -81,7 +81,7 @@ async def vidmark(the_media, message, working_dir, watermark_path, output_vid, t
             percentage = math.floor(elapsed_time * 100 / total_time)
             progress_str = "📊 **درصد میزان صدور :** {0}%\n`[{1}{2}]`".format(
                 round(percentage, 2),
-                ''.join(["**▓**" for i in range(math.floor(percentage / 10))]),
+                ''.join(["▓" for i in range(math.floor(percentage / 10))]),
                 ''.join(["░" for i in range(10 - math.floor(percentage / 10))])
                 )
             stats = f'📦️ **در حال افزودن واترمارک [Preset: `{mode}`]**\n\n' \
