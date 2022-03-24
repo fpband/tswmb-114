@@ -150,7 +150,7 @@ async def VidWatermarkAdder(bot, cmd):
 		return
 	status = Config.DOWN_PATH + "/WatermarkAdder/status.json"
 	if os.path.exists(status):
-		await cmd.reply_text("Sorry, Currently I am busy with another Task!\n\n**🔚 دقایقی دیگر تلاش نمایید.**")
+		await cmd.reply_text("**💡 ربات اکنون مشغول پروژه دیگری است .**\n\n**🔚 دقایقی دیگر تلاش نمایید.**")
 		return
 	preset = Config.PRESET
 	editable = await cmd.reply_text("**📥 در حال دانلود ویدیو ...**", parse_mode="Markdown")
