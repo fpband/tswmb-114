@@ -408,7 +408,7 @@ async def button(bot, cmd: CallbackQuery):
 					reply_markup=InlineKeyboardMarkup(
 						[
 							[
-								InlineKeyboardButton("🌺 عضویت 🌺", url=invite_link.invite_link)
+								InlineKeyboardButton("🌺 عضویت 🌺", url=f"https://t.me/{UPDATES_CHANNEL}")
 							],
 							[
 								InlineKeyboardButton("✅ عضو شدم 👍", callback_data="refreshmeh")
@@ -456,7 +456,7 @@ async def button(bot, cmd: CallbackQuery):
 					reply_markup=InlineKeyboardMarkup(
 						[
 							[
-								InlineKeyboardButton("🌺 عضویت 🌺", url=invite_link.invite_link)
+								InlineKeyboardButton("🌺 عضویت 🌺", url=f"https://t.me/{UPDATES_CHANNEL}")
 							],
 							[
 								InlineKeyboardButton("✅ عضو شدم 👍", callback_data="refreshmeh")
