@@ -92,8 +92,6 @@ async def SettingsBot(bot, cmd):
 		size_tag = "50%"
 	elif int(watermark_size) == 55:
 		size_tag = "55%"
-	elif int(watermark_size) == 55:
-		size_tag = "55%"
 	elif int(watermark_size) == 60:
 		size_tag = "60%"
 	elif int(watermark_size) == 65:
@@ -104,10 +102,12 @@ async def SettingsBot(bot, cmd):
 		size_tag = "75%"
 	elif int(watermark_size) == 80:
 		size_tag = "80%"
-	elif int(watermark_size) == 80:
+	elif int(watermark_size) == 85:
 		size_tag = "85%"
 	elif int(watermark_size) == 90:
 		size_tag = "90%"
+	elif int(watermark_size) == 95:
+		size_tag = "95%"
 	elif int(watermark_size) == 100:
 		size_tag = "100%"
 	else:
