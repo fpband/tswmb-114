@@ -29,7 +29,7 @@ async def handle_force_subscribe(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🌺 عضویت 🌺", url=f=https://t.me/{UPDATES_CHANNEL}")
+                        InlineKeyboardButton("🌺 عضویت 🌺", url=f"https://t.me/{UPDATES_CHANNEL}")
                     ],
                     [
                         InlineKeyboardButton("✅ عضو شدم 👍 ", callback_data="refreshmeh")
