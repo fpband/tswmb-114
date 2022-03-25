@@ -40,7 +40,7 @@ async def HelpWatermark(bot, cmd):
 	await cmd.reply_text(
 		text=Config.USAGE_WATERMARK_ADDER,
 		parse_mode="Markdown",
-		reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💻 مدیر و سازنده ربات", url="https://t.me/FarshidBand")], [InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub"), InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1")]]),
+		reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💻 مدیر و سازنده ربات", url="https://t.me/FarshidBand")], [InlineKeyboardButton("👥 گروه پشتیبانی", url="https://t.me/dlchinhub"), InlineKeyboardButton("📢 کانال پشتیبانی", url="https://t.me/SeriesPlus1")]]),
 		disable_web_page_preview=True
 	)
 
@@ -114,7 +114,7 @@ async def SettingsBot(bot, cmd):
 		size_tag = "10%"
 	## --- Next --- ##
 	await cmd.reply_text(
-		text="⚙️ تنظیمات واترمارک را به دلخواه تغییر دهید.",
+		text="**⚙️ تنظیمات واترمارک** :/n/n📍 در این بخش میتوانید **محل قرار گیری واترمارک** و **اندازه واترمارک** را به دلخواه تغییر دهید.👇",
 		disable_web_page_preview=True,
 		parse_mode="Markdown",
 		reply_markup=InlineKeyboardMarkup(
@@ -362,7 +362,7 @@ async def CancelWatermarkAdder(bot, cmd):
 				print(err)
 		await delete_all()
 		await bot.send_message(chat_id=Config.LOG_CHANNEL, text="#WATERMARK_ADDER: Stopped!")
-		await cmd.reply_text("Watermark Adding Process Stopped!")
+		await cmd.reply_text("پروژه افزودن واترمارک به ویدیو باموفقیت لغو شد")
 		try:
 			await bot.edit_message_text(chat_id=int(statusMsg["chat_id"]), message_id=int(statusMsg["message"]), text="🚦 پروژه واترمارک با موفقیت لغو شد. 🚦")
 		except:
@@ -380,7 +380,7 @@ async def sts(_, m):
 	if os.path.exists(status):
 		msg_text = "Sorry, Currently I am busy with another Task!\nI can't add Watermark at this moment."
 	else:
-		msg_text = "I am Free Now!\nSend me any video to add Watermark."
+		msg_text = "هم اکنون ویدیوی خود را جهت افزودن واترمارک ارسال نمایید."
 	if int(m.from_user.id) == Config.OWNER_ID:
 		total_users = await db.total_users_count()
 		msg_text += f"\n\n**👥 تعداد کاربرای ربات :** `{total_users}`"
@@ -404,14 +404,14 @@ async def button(bot, cmd: CallbackQuery):
 					return
 			except UserNotParticipant:
 				await cmd.message.edit(
-					text="**You Still Didn't Join ☹️, Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!",
+					text="**⁦⚠️⁩ شما در کانال عضو نیستید ⁦‼️⁩**/n/n**• برای استفاده از ربات باید در کانال زیر عضو شوید سپس /start را کلیک کنید.👇**",
 					reply_markup=InlineKeyboardMarkup(
 						[
 							[
-								InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+								InlineKeyboardButton("🌺 عضویت 🌺", url=invite_link.invite_link)
 							],
 							[
-								InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
+								InlineKeyboardButton("✅ عضو شدم 👍", callback_data="refreshmeh")
 							]
 						]
 					),
@@ -452,14 +452,14 @@ async def button(bot, cmd: CallbackQuery):
 					return
 			except UserNotParticipant:
 				await cmd.message.edit(
-					text="**You Still Didn't Join ☹️, Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!",
+					text="**⁦⚠️⁩ شما در کانال عضو نیستید⁦ ‼️⁩**/n/n**• برای استفاده از ربات باید در کانال زیر عضو شوید سپس /start را کلیک کنید.👇**",
 					reply_markup=InlineKeyboardMarkup(
 						[
 							[
 								InlineKeyboardButton("🌺 عضویت 🌺", url=invite_link.invite_link)
 							],
 							[
-								InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
+								InlineKeyboardButton("✅ عضو شدم 👍", callback_data="refreshmeh")
 							]
 						]
 					),
@@ -468,7 +468,7 @@ async def button(bot, cmd: CallbackQuery):
 				return
 			except Exception:
 				await cmd.message.edit(
-					text="Something went Wrong. Contact my [Support Admin](https://t.me/FarshidBand).",
+					text="Something went Wrong. Contact my [Support-Admin](https://t.me/FarshidBand).",
 					parse_mode="markdown",
 					disable_web_page_preview=True
 				)
