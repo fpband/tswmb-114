@@ -528,7 +528,7 @@ async def button(bot, cmd: CallbackQuery):
 			size_tag = "85%"
 		elif int(watermark_size) == 90:
 			size_tag = "90%"
-		elif int(watermark_size) == 90:
+		elif int(watermark_size) == 95:
 			size_tag = "95%"
 		elif int(watermark_size) == 100:
 			size_tag = "100%"
