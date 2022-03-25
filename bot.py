@@ -40,7 +40,7 @@ async def HelpWatermark(bot, cmd):
 	await cmd.reply_text(
 		text=Config.USAGE_WATERMARK_ADDER,
 		parse_mode="Markdown",
-		reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💻 مدیر و سازنده ربات", url="https://t.me/FarshidBand"), InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub")], [InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1")], [InlineKeyboardButton("📍 اینستاگرام", url="https://instagram.com/Series.Plus1")]]),
+		reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💻 مدیر و سازنده ربات", url="https://t.me/FarshidBand")], [InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub"), InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1")]]),
 		disable_web_page_preview=True
 	)
 
