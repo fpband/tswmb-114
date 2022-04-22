@@ -28,7 +28,7 @@ class Config(object):
 
 ‌**⚙️⁩ تنظیمات واترمارک ← /settings** 
 
-**👤 مدیر : [ƑﾑRSみƗの-BﾑŊの](https://t.me/FarshidBand)**
+**🖍️ طراح و سازنده ربات : [ƑﾑRSみƗの-BﾑŊの](https://t.me/FarshidBand) **
 """
 	PROGRESS = """
 • ✓{1} of {2} •
