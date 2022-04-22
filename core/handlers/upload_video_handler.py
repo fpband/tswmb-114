@@ -20,8 +20,8 @@ async def send_video_handler(bot, cmd, output_vid, video_thumbnail, duration, wi
         reply_to_message_id=cmd.message_id,
         supports_streaming=True,
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("✍️ ارسال نظرات و پیشنهادات ⁦❤️⁩", url="https://t.me/FarshidBand")],
-                                           [InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1")],
-                                           [InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub")]]),
+                                           [InlineKeyboardButton("🔮 کانال پشتیبانی", url="https://t.me/SeriesPlus1"),
+                                            InlineKeyboardButton("🔮 گروه پشتیبانی", url="https://t.me/dlchinhub")]]),
         progress=progress_for_pyrogram,
         progress_args=(
             "**📤 در حال آپلود ویدیو ...**",
