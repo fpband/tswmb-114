@@ -120,8 +120,8 @@ async def SettingsBot(bot, cmd):
 		reply_markup=InlineKeyboardMarkup(
 			[
 				[InlineKeyboardButton(f"📌 مکان قرارگیری واترمارک - {position_tag}", callback_data="lol")],
-				[InlineKeyboardButton("بالا چپ⁦↖️⁩", callback_data=f"position_5:5"), InlineKeyboardButton("بالا راست⁦↗️⁩", callback_data=f"position_main_w-overlay_w-5:5")],
-				[InlineKeyboardButton("پایین چپ⁦↙️⁩", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("پایین راست⁦↘️⁩", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
+				[InlineKeyboardButton("بالا چپ⁦ ↖️⁩", callback_data=f"position_5:5"), InlineKeyboardButton("بالا راست ⁦↗️⁩", callback_data=f"position_main_w-overlay_w-5:5")],
+				[InlineKeyboardButton("پایین چپ ⁦↙️⁩", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("پایین راست⁦ ↘️⁩", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
 				[InlineKeyboardButton(f"📌 سایز واترمارک - {size_tag}", callback_data="lel")],
 				[InlineKeyboardButton("5%", callback_data=f"size_5"), InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25")],
 				[InlineKeyboardButton("30%", callback_data=f"size_30"), InlineKeyboardButton("35%", callback_data=f"size_35"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45"), InlineKeyboardButton("50%", callback_data=f"size_50")],
