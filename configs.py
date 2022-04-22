@@ -20,7 +20,7 @@ class Config(object):
 	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", False))
 	ALLOW_UPLOAD_TO_STREAMTAPE = bool(os.environ.get("ALLOW_UPLOAD_TO_STREAMTAPE", True))
 	USAGE_WATERMARK_ADDER = """
-**👋 سلام دوست عزیز خوش آمدید ⁦❤️⁩**
+**👋 سلام [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) عزیز خوش آمدید ⁦❤️⁩**
 
 **🔘 من ربات کاربردی واترمارک فایل های ویدیویی هستم.** 
 
@@ -34,5 +34,5 @@ class Config(object):
 • ✓{1} of {2} •
 📊 **درصد دانلود شده** : {0}%
 ⚡ **سرعت** : {3}/s
-⁦⏲️⁩ **مدت زمان اتمام پروژه** : {4}
+⁦⌚ **مدت زمان اتمام پروژه** : {4}
 """
