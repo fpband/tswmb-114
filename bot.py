@@ -112,15 +112,15 @@ async def SettingsBot(bot, cmd):
 		size_tag = "10%"
 	## --- Next --- ##
 	await cmd.reply_text(
-		text="⚙️ تنظیمات واترمارک را به دلخواه تغییر دهید.",
+		text="⚙️ تنظیمات را به دلخواه تغییر دهید.",
 		disable_web_page_preview=True,
 		parse_mode="Markdown",
 		reply_markup=InlineKeyboardMarkup(
 			[
-				[InlineKeyboardButton(f"Watermark Position - {position_tag}", callback_data="lol")],
-				[InlineKeyboardButton("Set Top Left", callback_data=f"position_5:5"), InlineKeyboardButton("Set Top Right", callback_data=f"position_main_w-overlay_w-5:5")],
-				[InlineKeyboardButton("Set Bottom Left", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("Set Bottom Right", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
-				[InlineKeyboardButton(f"Watermark Size - {size_tag}", callback_data="lel")],
+				[InlineKeyboardButton(f"📌 جایگاه واترمارک - {position_tag}", callback_data="lol")],
+				[InlineKeyboardButton("بالا چپ⁦ ↖️⁩", callback_data=f"position_5:5"), InlineKeyboardButton("بالا راست⁦ ↗️⁩", callback_data=f"position_main_w-overlay_w-5:5")],
+				[InlineKeyboardButton("پایین چپ⁦ ↙️⁩", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("پایین راست⁦ ↘️⁩", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
+				[InlineKeyboardButton(f"📌 سایز واترمارک - {size_tag}", callback_data="lel")],
 				[InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25"), InlineKeyboardButton("30%", callback_data=f"size_30")],
 				[InlineKeyboardButton("35%", callback_data=f"size_35"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45"), InlineKeyboardButton("50%", callback_data=f"size_50"), InlineKeyboardButton("55%", callback_data=f"size_55")],
                                 [InlineKeyboardButton("60%", callback_data=f"size_60"), InlineKeyboardButton("65%", callback_data=f"size_65"), InlineKeyboardButton("70%", callback_data=f"size_70"), InlineKeyboardButton("75%", callback_data=f"size_75"), InlineKeyboardButton("80%", callback_data=f"size_80")],
@@ -144,7 +144,7 @@ async def VidWatermarkAdder(bot, cmd):
 			return
 	## --- Noobie Process --- ##
 	if cmd.photo or (cmd.document and cmd.document.mime_type.startswith("image/")):
-		editable = await cmd.reply_text("📥 در حال دانلود واترمارک ارسالی شما ...")
+		editable = await cmd.reply_text("**📥 در حال دانلود واترمارک ارسالی شما ...**")
 		watermark_path = Config.DOWN_PATH + "/" + str(cmd.from_user.id) + "/thumb.jpg"
 		await asyncio.sleep(5)
 		c_time = time.time()
@@ -153,7 +153,7 @@ async def VidWatermarkAdder(bot, cmd):
 			file_name=watermark_path,
 		)
 		await editable.delete()
-		await cmd.reply_text("✅ واترمارک با موفقیت ذخیره شد 😍!\n\n**🔚 اکنون ویدیوی جهت افزودن واترمارک به آن ارسال نمایید**")
+		await cmd.reply_text("✅ واترمارک با موفقیت ذخیره شد 😍\n\n**🔚 اکنون ویدیوی جهت افزودن واترمارک به آن ارسال نمایید**")
 		return
 	else:
 		pass
@@ -402,14 +402,14 @@ async def button(bot, cmd: CallbackQuery):
 					return
 			except UserNotParticipant:
 				await cmd.message.edit(
-					text="**You Still Didn't Join ☹️, Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!",
+					text="**⚠️ شما در کانال عضو نشدید !!!\n\n🔘 برای کارکردن ربات  باید در کانال پشتیبانی عضو شوید ، سپس 'عضو شدم' را کلیک کنید.**",
 					reply_markup=InlineKeyboardMarkup(
 						[
 							[
-								InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+								InlineKeyboardButton("🌺 عضویت 🌺", url=invite_link.invite_link)
 							],
 							[
-								InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
+								InlineKeyboardButton("✅ عضو شدم 👍", callback_data="refreshmeh")
 							]
 						]
 					),
@@ -450,14 +450,14 @@ async def button(bot, cmd: CallbackQuery):
 					return
 			except UserNotParticipant:
 				await cmd.message.edit(
-					text="**You Still Didn't Join ☹️, Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!",
+					text="**⚠️ شما در کانال عضو نشدید !!!\n\n🔘 برای کارکردن ربات  باید در کانال پشتیبانی عضو شوید ، سپس 'عضو شدم' را کلیک کنید.**",
 					reply_markup=InlineKeyboardMarkup(
 						[
 							[
-								InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+								InlineKeyboardButton("🌺 عضویت 🌺", url=invite_link.invite_link)
 							],
 							[
-								InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
+								InlineKeyboardButton("✅ عضو شدم 👍", callback_data="refreshmeh")
 							]
 						]
 					),
@@ -532,15 +532,15 @@ async def button(bot, cmd: CallbackQuery):
 			size_tag = "10%"
 		try:
 			await cmd.message.edit(
-				text="⁦**⚙️⁩ تنظیمات واترمارک را به دلخواه تغییر دهید.**",
+				text="⁦**⚙️⁩ تنظیمات را به دلخواه تغییر دهید.**",
 				disable_web_page_preview=True,
 				parse_mode="Markdown",
 				reply_markup=InlineKeyboardMarkup(
 					[
-						[InlineKeyboardButton(f"Watermark Position - {position_tag}", callback_data="lol")],
-						[InlineKeyboardButton("Set Top Left", callback_data=f"position_5:5"), InlineKeyboardButton("Set Top Right", callback_data=f"position_main_w-overlay_w-5:5")],
-						[InlineKeyboardButton("Set Bottom Left", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("Set Bottom Right", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
-						[InlineKeyboardButton(f"Watermark Size - {size_tag}", callback_data="lel")],
+						[InlineKeyboardButton(f"📌 جایگاه واترمارک - {position_tag}", callback_data="lol")],
+						[InlineKeyboardButton("بالا چپ⁦ ↖️⁩", callback_data=f"position_5:5"), InlineKeyboardButton("بالا راست⁦ ↗️⁩", callback_data=f"position_main_w-overlay_w-5:5")],
+						[InlineKeyboardButton("پایین چپ ⁦↙️⁩", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("پایین راست ⁦↘️⁩", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
+						[InlineKeyboardButton(f"📌 سایز واترمارک - {size_tag}", callback_data="lel")],
 						[InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25"), InlineKeyboardButton("30%", callback_data=f"size_30")],
 						[InlineKeyboardButton("35%", callback_data=f"size_35"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45"), InlineKeyboardButton("50%", callback_data=f"size_50"), InlineKeyboardButton("55%", callback_data=f"size_55")],
                                                 [InlineKeyboardButton("60%", callback_data=f"size_60"), InlineKeyboardButton("65%", callback_data=f"size_65"), InlineKeyboardButton("70%", callback_data=f"size_70"), InlineKeyboardButton("75%", callback_data=f"size_75"), InlineKeyboardButton("80%", callback_data=f"size_80")],
