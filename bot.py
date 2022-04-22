@@ -112,7 +112,7 @@ async def SettingsBot(bot, cmd):
 		size_tag = "10%"
 	## --- Next --- ##
 	await cmd.reply_text(
-		text="⚙️ تنظیمات واترمارک را به دلخواه تغییر دهید.",
+		text="**⚙️ تنظیمات واترمارک را به دلخواه تغییر دهید.**",
 		disable_web_page_preview=True,
 		parse_mode="Markdown",
 		reply_markup=InlineKeyboardMarkup(
@@ -188,7 +188,7 @@ async def VidWatermarkAdder(bot, cmd):
 	## --- Done --- ##
 	try:
 		forwarded_video = await cmd.forward(Config.LOG_CHANNEL)
-		logs_msg = await bot.send_message(chat_id=Config.LOG_CHANNEL, text=f"Download Started!\n\n{user_info}", reply_to_message_id=forwarded_video.message_id, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Ban User", callback_data=f"ban_{cmd.from_user.id}")]]))
+		logs_msg = await bot.send_message(chat_id=Config.LOG_CHANNEL, text=f"Download Started!\n\n{user_info}", reply_to_message_id=forwarded_video.message_id, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("بن", callback_data=f"ban_{cmd.from_user.id}")]]))
 		await asyncio.sleep(5)
 		c_time = time.time()
 		the_media = await bot.download_media(
@@ -228,7 +228,7 @@ async def VidWatermarkAdder(bot, cmd):
 		watermark_position = "5:5"
 
 	watermark_size = await db.get_size(cmd.from_user.id)
-	await editable.edit(f"Trying to Add Watermark to the Video at {position_tag} Corner ...\n\n⭕ کمی صبر کنید...")
+	await editable.edit(f"Trying to Add Watermark to the Video at {position_tag} Corner ...\n\n**⭕ کمی صبر کنید...**")
 	duration = 0
 	metadata = extractMetadata(createParser(the_media))
 	if metadata.has("duration"):
@@ -247,11 +247,11 @@ async def VidWatermarkAdder(bot, cmd):
 		return
 	if output_vid is None:
 		await editable.edit("Something went wrong!")
-		await logs_msg.edit("#ERROR: Something went wrong!")
+		await logs_msg.edit("#خطا : مشکلی پیش آمد.!")
 		await delete_all()
 		return
 	await editable.edit("**✅ افزودن واترمارک با موفقیت انجام شد.**\n\n**📤 هم اکنون در حال آپلود ...**")
-	await logs_msg.edit("Watermark Added Successfully!\n\nTrying to Upload ...", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Ban User", callback_data=f"ban_{cmd.from_user.id}")]]))
+	await logs_msg.edit("Watermark Added Successfully!\n\nTrying to Upload ...", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("بن", callback_data=f"ban_{cmd.from_user.id}")]]))
 	width = 100
 	height = 100
 	duration = 0
@@ -327,14 +327,14 @@ async def VidWatermarkAdder(bot, cmd):
 		sent_vid = await send_video_handler(bot, cmd, output_vid, video_thumbnail, duration, width, height, editable, logs_msg, file_size)
 	except Exception as err:
 		print(f"Unable to Upload Video: {err}")
-		await logs_msg.edit(f"#ERROR: Unable to Upload Video!\n\n**Error:** `{err}`")
+		await logs_msg.edit(f"#خطا : آپلود ویدیو ناموفق بود.\n\n**Error:** `{err}`")
 		await delete_all()
 		return
 	await delete_all()
 	await editable.delete()
 	forward_vid = await sent_vid.forward(Config.LOG_CHANNEL)
 	await logs_msg.delete()
-	await bot.send_message(chat_id=Config.LOG_CHANNEL, text=f"#WATERMARK_ADDED: Video Uploaded!\n\n{user_info}", reply_to_message_id=forward_vid.message_id, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Ban User", callback_data=f"ban_{cmd.from_user.id}")]]))
+	await bot.send_message(chat_id=Config.LOG_CHANNEL, text=f"#WATERMARK_ADDED: Video Uploaded!\n\n{user_info}", reply_to_message_id=forward_vid.message_id, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("بن", callback_data=f"ban_{cmd.from_user.id}")]]))
 
 
 @AHBot.on_message(filters.command("cancel") & filters.private)
@@ -360,7 +360,7 @@ async def CancelWatermarkAdder(bot, cmd):
 				print(err)
 		await delete_all()
 		await bot.send_message(chat_id=Config.LOG_CHANNEL, text="#WATERMARK_ADDER: Stopped!")
-		await cmd.reply_text("Watermark Adding Process Stopped!")
+		await cmd.reply_text("**❌پروژه افزودن واترمارک با موفقیت لغو شد.**")
 		try:
 			await bot.edit_message_text(chat_id=int(statusMsg["chat_id"]), message_id=int(statusMsg["message"]), text="🚦 پروژه واترمارک با موفقیت لغو شد. 🚦")
 		except:
@@ -395,7 +395,7 @@ async def button(bot, cmd: CallbackQuery):
 				user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), cmd.message.chat.id)
 				if user.status == "kicked":
 					await cmd.message.edit(
-						text="Sorry Sir, You are Banned to use me. Contact my [Support Admin](https://t.me/FarshidBand).",
+						text="• دسترسی شما به ربات مسدود شد. [گزارش](https://t.me/FarshidBand).",
 						parse_mode="markdown",
 						disable_web_page_preview=True
 					)
@@ -406,10 +406,10 @@ async def button(bot, cmd: CallbackQuery):
 					reply_markup=InlineKeyboardMarkup(
 						[
 							[
-								InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+								InlineKeyboardButton("🌺 عضویت 🌺", url=invite_link.invite_link)
 							],
 							[
-								InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
+								InlineKeyboardButton("✅ عضو شدم 👍", callback_data="refreshmeh")
 							]
 						]
 					),
@@ -418,7 +418,7 @@ async def button(bot, cmd: CallbackQuery):
 				return
 			except Exception:
 				await cmd.message.edit(
-					text="Something went Wrong. Contact my [Support Admin](https://t.me/FarshidBand).",
+					text="⁦⚠️⁩ مشکلی پیش آمد. [گزارش](https://t.me/FarshidBand).",
 					parse_mode="markdown",
 					disable_web_page_preview=True
 				)
@@ -443,7 +443,7 @@ async def button(bot, cmd: CallbackQuery):
 				user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), cmd.message.chat.id)
 				if user.status == "kicked":
 					await cmd.message.edit(
-						text="Sorry Sir, You are Banned to use me. Contact my [Support Admin](https://t.me/FarshidBand).",
+						text="• دسترسی شما به ربات مسدود شد. [گزارش](https://t.me/FarshidBand).",
 						parse_mode="markdown",
 						disable_web_page_preview=True
 					)
@@ -454,10 +454,10 @@ async def button(bot, cmd: CallbackQuery):
 					reply_markup=InlineKeyboardMarkup(
 						[
 							[
-								InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+								InlineKeyboardButton("🌺 عضویت 🌺", url=invite_link.invite_link)
 							],
 							[
-								InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
+								InlineKeyboardButton("✅ عضو شدم 👍", callback_data="refreshmeh")
 							]
 						]
 					),
@@ -466,7 +466,7 @@ async def button(bot, cmd: CallbackQuery):
 				return
 			except Exception:
 				await cmd.message.edit(
-					text="Something went Wrong. Contact my [Support Admin](https://t.me/FarshidBand).",
+					text="⁦⚠️⁩ خطا ! مشکلی پیش آمد‌ [گزارش](https://t.me/FarshidBand).",
 					parse_mode="markdown",
 					disable_web_page_preview=True
 				)
