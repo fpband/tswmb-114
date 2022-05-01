@@ -17,7 +17,7 @@ async def handle_force_subscribe(bot, cmd):
         if user.status == "kicked":
             await bot.send_message(
                 chat_id=cmd.from_user.id,
-                text="Sorry Sir, You are Banned to use me. Contact my [Support Admin](https://t.me/FarshidBand).",
+                text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/linux_repo).",
                 parse_mode="markdown",
                 disable_web_page_preview=True
             )
@@ -25,15 +25,14 @@ async def handle_force_subscribe(bot, cmd):
     except UserNotParticipant:
         await bot.send_message(
             chat_id=cmd.from_user.id,
-            text="**• برای استفاده از ربات باید در کانال زیر عضو 
-شوید سپس "عضو شدم" را کلیک کنید.👇**",
+            text="**Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🌺 عضویت 🌺", url=invite_link.invite_link)
+                        InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
                     ],
                     [
-                        InlineKeyboardButton("✅ عضو شدم 👍", callback_data="refreshmeh")
+                        InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
                     ]
                 ]
             ),
@@ -43,7 +42,7 @@ async def handle_force_subscribe(bot, cmd):
     except Exception:
         await bot.send_message(
             chat_id=cmd.from_user.id,
-            text="Something went Wrong. Contact my [Support Admin](https://t.me/FarshidBand).",
+            text="Something went Wrong. Contact my [Support Group](https://t.me/linux_repo).",
             parse_mode="markdown",
             disable_web_page_preview=True
         )
