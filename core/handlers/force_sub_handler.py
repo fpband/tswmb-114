@@ -29,10 +29,10 @@ async def handle_force_subscribe(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🤖 عضویت", url=invite_link.invite_link)
+                        InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
                     ],
                     [
-                        InlineKeyboardButton("🔄 عضو شدم 👍", callback_data="refreshmeh")
+                        InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
                     ]
                 ]
             ),
