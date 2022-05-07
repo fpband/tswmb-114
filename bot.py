@@ -70,9 +70,7 @@ async def SettingsBot(bot, cmd):
 		position_tag = "Top Left"
 
 	watermark_size = await db.get_size(cmd.from_user.id)
-	if int(watermark_size) == 5:
-		size_tag = "5%"
-	elif int(watermark_size) == 10:
+	if int(watermark_size) == 10:
 		size_tag = "10%"
 	elif int(watermark_size) == 15:
 		size_tag = "15%"
@@ -119,14 +117,14 @@ async def SettingsBot(bot, cmd):
 		parse_mode="Markdown",
 		reply_markup=InlineKeyboardMarkup(
 			[
-				[InlineKeyboardButton(f"📌 جایگاه واترمارک - {position_tag}", callback_data="lol")],
-				[InlineKeyboardButton("بالا چپ ⁦↖️⁩", callback_data=f"position_5:5"), InlineKeyboardButton("بالا راست⁦ ↗️⁩", callback_data=f"position_main_w-overlay_w-5:5")],
-				[InlineKeyboardButton("پایین چپ ⁦↙️⁩", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("پایین راست ⁦↗️⁩", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
-				[InlineKeyboardButton(f"📌 سایز واترمارک - {size_tag}", callback_data="lel")],
-				[InlineKeyboardButton("5%", callback_data=f"size_5"), InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25")],
-				[InlineKeyboardButton("30%", callback_data=f"size_30"), InlineKeyboardButton("35%", callback_data=f"size_35"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45"), InlineKeyboardButton("50%", callback_data=f"size_50")],
-                                [InlineKeyboardButton("55%", callback_data=f"size_55"), InlineKeyboardButton("60%", callback_data=f"size_60"), InlineKeyboardButton("65%", callback_data=f"size_65"), InlineKeyboardButton("70%", callback_data=f"size_70"), InlineKeyboardButton("75%", callback_data=f"size_75")],
-                                [InlineKeyboardButton("80%", callback_data=f"size_80"), InlineKeyboardButton("85%", callback_data=f"size_85"), InlineKeyboardButton("90%", callback_data=f"size_90"), InlineKeyboardButton("95%", callback_data=f"size_95"), InlineKeyboardButton("100%", callback_data=f"size_100")]
+				[InlineKeyboardButton(f"Watermark Position - {position_tag}", callback_data="lol")],
+				[InlineKeyboardButton("Set Top Left", callback_data=f"position_5:5"), InlineKeyboardButton("Set Top Right", callback_data=f"position_main_w-overlay_w-5:5")],
+				[InlineKeyboardButton("Set Bottom Left", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("Set Bottom Right", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
+				[InlineKeyboardButton(f"Watermark Size - {size_tag}", callback_data="lel")],
+				[InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25"), InlineKeyboardButton("30%", callback_data=f"size_30")],
+				[InlineKeyboardButton("35%", callback_data=f"size_35"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45"), InlineKeyboardButton("50%", callback_data=f"size_50"), InlineKeyboardButton("55%", callback_data=f"size_55")],
+                                [InlineKeyboardButton("60%", callback_data=f"size_60"), InlineKeyboardButton("65%", callback_data=f"size_65"), InlineKeyboardButton("70%", callback_data=f"size_70"), InlineKeyboardButton("75%", callback_data=f"size_75"), InlineKeyboardButton("80%", callback_data=f"size_80")],
+                                [InlineKeyboardButton("85%", callback_data=f"size_85"), InlineKeyboardButton("90%", callback_data=f"size_90"), InlineKeyboardButton("95%", callback_data=f"size_95"), InlineKeyboardButton("100%", callback_data=f"size_100")]
 			]
 		)
 	)
@@ -492,9 +490,7 @@ async def button(bot, cmd: CallbackQuery):
 			position_tag = "Top Left"
 
 		watermark_size = await db.get_size(cmd.from_user.id)
-		if int(watermark_size) == 5:
-			size_tag = "5%"
-		elif int(watermark_size) == 10:
+		if int(watermark_size) == 10:
 			size_tag = "10%"
 		elif int(watermark_size) == 15:
 			size_tag = "15%"
@@ -541,14 +537,14 @@ async def button(bot, cmd: CallbackQuery):
 				parse_mode="Markdown",
 				reply_markup=InlineKeyboardMarkup(
 					[
-						[InlineKeyboardButton(f"📌 جایگاه واترمارک - {position_tag}", callback_data="lol")],
-						[InlineKeyboardButton("بالا چپ ⁦↖️⁩", callback_data=f"position_5:5"), InlineKeyboardButton("بالا راست ⁦↗️⁩", callback_data=f"position_main_w-overlay_w-5:5")],
-						[InlineKeyboardButton("پایین چپ ⁦↙️⁩", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("پایین راست ⁦↘️⁩", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
-						[InlineKeyboardButton(f"📌 سایز واترمارک - {size_tag}", callback_data="lel")],
-						[InlineKeyboardButton("5%", callback_data=f"size_5"), InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"),   InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25")],
-						[InlineKeyboardButton("30%", callback_data=f"size_30"), InlineKeyboardButton("35%", callback_data=f"size_35"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45"), InlineKeyboardButton("50%", callback_data=f"size_50")],
-                                                [InlineKeyboardButton("55%", callback_data=f"size_55"), InlineKeyboardButton("60%", callback_data=f"size_60"), InlineKeyboardButton("65%", callback_data=f"size_65"), InlineKeyboardButton("70%", callback_data=f"size_70"), InlineKeyboardButton("75%", callback_data=f"size_75")],
-                                                [InlineKeyboardButton("80%", callback_data=f"size_80"), InlineKeyboardButton("85%", callback_data=f"size_85"), InlineKeyboardButton("90%", callback_data=f"size_90"), InlineKeyboardButton("95%", callback_data=f"size_95"), InlineKeyboardButton("100%", callback_data=f"size_100")]
+						[InlineKeyboardButton(f"Watermark Position - {position_tag}", callback_data="lol")],
+						[InlineKeyboardButton("Set Top Left", callback_data=f"position_5:5"), InlineKeyboardButton("Set Top Right", callback_data=f"position_main_w-overlay_w-5:5")],
+						[InlineKeyboardButton("Set Bottom Left", callback_data=f"position_5:main_h-overlay_h"), InlineKeyboardButton("Set Bottom Right", callback_data=f"position_main_w-overlay_w-5:main_h-overlay_h-5")],
+						[InlineKeyboardButton(f"Watermark Size - {size_tag}", callback_data="lel")],
+						[InlineKeyboardButton("10%", callback_data=f"size_10"), InlineKeyboardButton("15%", callback_data=f"size_15"), InlineKeyboardButton("20%", callback_data=f"size_20"), InlineKeyboardButton("25%", callback_data=f"size_25"), InlineKeyboardButton("30%", callback_data=f"size_30")],
+						[InlineKeyboardButton("35%", callback_data=f"size_35"), InlineKeyboardButton("40%", callback_data=f"size_40"), InlineKeyboardButton("45%", callback_data=f"size_45"), InlineKeyboardButton("50%", callback_data=f"size_50"), InlineKeyboardButton("55%", callback_data=f"size_55")],
+                                                [InlineKeyboardButton("60%", callback_data=f"size_60"), InlineKeyboardButton("65%", callback_data=f"size_65"), InlineKeyboardButton("70%", callback_data=f"size_70"), InlineKeyboardButton("75%", callback_data=f"size_75"), InlineKeyboardButton("80%", callback_data=f"size_80")],
+                                                [InlineKeyboardButton("85%", callback_data=f"size_85"), InlineKeyboardButton("90%", callback_data=f"size_90"), InlineKeyboardButton("95%", callback_data=f"size_95"), InlineKeyboardButton("100%", callback_data=f"size_100")]
 
 
 					]
